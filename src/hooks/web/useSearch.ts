@@ -23,7 +23,7 @@ export const useSearch = () => {
     return search
   }
 
-  // 一些内置的method
+  // Some built-in methods
   const methods = {
     /**
      * @description Setsearch组件的props

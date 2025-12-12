@@ -13,22 +13,22 @@ export type CrudSchema = Omit<TableColumn, 'children'> & {
 }
 
 interface CrudSearchParams extends Omit<FormSchema, 'field'> {
-  // 是否Hide在Query项
+  // Whether to hide in query item
   hidden?: boolean
 }
 
 interface CrudTableParams extends Omit<TableColumn, 'field'> {
-  // 是否Hide表头
+  // Whether to hide table header
   hidden?: boolean
 }
 
 interface CrudFormParams extends Omit<FormSchema, 'field'> {
-  // 是否Hideform项
+  // Whether to hide form item
   hidden?: boolean
 }
 
 interface CrudDescriptionsParams extends Omit<DescriptionsSchema, 'field'> {
-  // 是否Hideform项
+  // Whether to hide form item
   hidden?: boolean
 }
 
@@ -39,7 +39,7 @@ interface AllSchemas {
   detailSchema: DescriptionsSchema[]
 }
 
-// Filter所有结构
+// Filter all structures
 export const useCrudSchemas = (
   crudSchema: CrudSchema[]
 ): {
@@ -71,7 +71,7 @@ export const useCrudSchemas = (
   }
 }
 
-// Filter Search 结构
+// Filter Search structure
 const filterSearchSchema = (crudSchema: CrudSchema[]): FormSchema[] => {
   const searchSchema: FormSchema[] = []
   const length = crudSchema.length
@@ -91,7 +91,7 @@ const filterSearchSchema = (crudSchema: CrudSchema[]): FormSchema[] => {
   return searchSchema
 }
 
-// Filter table 结构
+// Filter table structure
 const filterTableSchema = (crudSchema: CrudSchema[]): TableColumn[] => {
   const tableColumns = treeMap<CrudSchema>(crudSchema, {
     conversion: (schema: CrudSchema) => {
@@ -104,7 +104,7 @@ const filterTableSchema = (crudSchema: CrudSchema[]): TableColumn[] => {
     }
   })
 
-  // 第一次Filter会有 undefined 所以需要二次Filter
+  // First filter may have undefined so need second filter
   return filter<TableColumn>(tableColumns as TableColumn[], (data) => {
     if (data.children === void 0) {
       delete data.children
@@ -113,14 +113,14 @@ const filterTableSchema = (crudSchema: CrudSchema[]): TableColumn[] => {
   })
 }
 
-// Filter form 结构
+// Filter form structure
 const filterFormSchema = (crudSchema: CrudSchema[]): FormSchema[] => {
   const formSchema: FormSchema[] = []
   const length = crudSchema.length
 
   for (let i = 0; i < length; i++) {
     const formItem = crudSchema[i]
-    // Determine是否Hide
+    // Determine whether to hide
     const formSchemaItem = {
       component: formItem?.form?.component || 'Input',
       ...formItem.form,
@@ -134,12 +134,12 @@ const filterFormSchema = (crudSchema: CrudSchema[]): FormSchema[] => {
   return formSchema
 }
 
-// Filter descriptions 结构
+// Filter descriptions structure
 const filterDescriptionsSchema = (crudSchema: CrudSchema[]): DescriptionsSchema[] => {
   const descriptionsSchema: FormSchema[] = []
 
   eachTree(crudSchema, (schemaItem: CrudSchema) => {
-    // Determine是否Hide
+    // Determine whether to hide
     if (!schemaItem?.detail?.hidden) {
       const descriptionsSchemaItem = {
         ...schemaItem.detail,
@@ -147,7 +147,7 @@ const filterDescriptionsSchema = (crudSchema: CrudSchema[]): DescriptionsSchema[
         label: schemaItem.detail?.label || schemaItem.label
       }
 
-      // Delete不必要的字段
+      // Delete unnecessary fields
       delete descriptionsSchemaItem.hidden
 
       descriptionsSchema.push(descriptionsSchemaItem)

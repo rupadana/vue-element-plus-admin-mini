@@ -62,7 +62,7 @@ export const setTextPlaceholder = (schema: FormSchema): PlaceholderModel => {
  */
 export const setGridProp = (col: ColProps = {}): ColProps => {
   const colProps: ColProps = {
-    // 如果有span，代表user优先级更高，所以不需要默认栅格
+    // If span exists, means user priority is higher, so no default grid needed
     ...(col.span
       ? {}
       : {
@@ -84,7 +84,7 @@ export const setGridProp = (col: ColProps = {}): ColProps => {
  */
 export const setComponentProps = (item: FormSchema): Recordable => {
   // const notNeedClearable = ['ColorPicker']
-  // 拆分event并组合
+  // Split and combine events
   const onEvents = (item?.componentProps as any)?.on || {}
   const newOnEvents: Recordable = {}
 
@@ -101,7 +101,7 @@ export const setComponentProps = (item: FormSchema): Recordable => {
     ...item.componentProps,
     ...newOnEvents
   }
-  // 需要Delete额外的property
+  // Need to delete extra properties
   if (componentProps.slots) {
     delete componentProps.slots
   }

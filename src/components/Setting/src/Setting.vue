@@ -102,31 +102,31 @@ const copyConfig = async () => {
       theme: {
         // 主题色
         elColorPrimary: '${appStore.getTheme.elColorPrimary}',
-        // 左侧menu边框颜色
+        // Left menu border color
         leftMenuBorderColor: '${appStore.getTheme.leftMenuBorderColor}',
-        // 左侧menu背景颜色
+        // Left menu background color
         leftMenuBgColor: '${appStore.getTheme.leftMenuBgColor}',
-        // 左侧menu浅色背景颜色
+        // Left menu light background color
         leftMenuBgLightColor: '${appStore.getTheme.leftMenuBgLightColor}',
-        // 左侧menu选中背景颜色
+        // Left menu selected background color
         leftMenuBgActiveColor: '${appStore.getTheme.leftMenuBgActiveColor}',
-        // 左侧menu收起选中背景颜色
+        // Left menu collapsed selected background color
         leftMenuCollapseBgActiveColor: '${appStore.getTheme.leftMenuCollapseBgActiveColor}',
-        // 左侧menu字体颜色
+        // Left menu font color
         leftMenuTextColor: '${appStore.getTheme.leftMenuTextColor}',
-        // 左侧menu选中字体颜色
+        // Left menu selected font color
         leftMenuTextActiveColor: '${appStore.getTheme.leftMenuTextActiveColor}',
         // logo字体颜色
         logoTitleTextColor: '${appStore.getTheme.logoTitleTextColor}',
         // logo边框颜色
         logoBorderColor: '${appStore.getTheme.logoBorderColor}',
-        // header背景颜色
+        // header background color
         topHeaderBgColor: '${appStore.getTheme.topHeaderBgColor}',
-        // header字体颜色
+        // header font color
         topHeaderTextColor: '${appStore.getTheme.topHeaderTextColor}',
-        // header悬停颜色
+        // header hover color
         topHeaderHoverColor: '${appStore.getTheme.topHeaderHoverColor}',
-        // header边框颜色
+        // header border color
         topToolBorderColor: '${appStore.getTheme.topToolBorderColor}'
       }
     `,

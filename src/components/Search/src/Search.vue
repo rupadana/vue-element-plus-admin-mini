@@ -12,14 +12,14 @@ import { FormItemProp } from 'element-plus'
 import { isObject, isEmptyVal } from '@/utils/is'
 
 const props = defineProps({
-  // 生成Form的layout结构array
+  // Generate Form layout structure array
   schema: {
     type: Array as PropType<FormSchema[]>,
     default: () => []
   },
-  // 是否需要栅格layout
+  // Whether grid layout is needed
   isCol: propTypes.bool.def(false),
-  // formlabel宽度
+  // form label width
   labelWidth: propTypes.oneOfType([String, Number]).def('auto'),
   // Actionbutton风格位置
   layout: propTypes.string.validate((v: string) => ['inline', 'bottom'].includes(v)).def('inline'),
@@ -122,7 +122,7 @@ const setProps = (props: SearchProps = {}) => {
 
 const schemaRef = ref<FormSchema[]>([])
 
-// Listenform结构化array，重新生成formModel
+// Listen to form structure array and regenerate formModel
 watch(
   () => unref(newSchema),
   async (schema = []) => {
@@ -194,7 +194,7 @@ const setSchema = (schemaProps: FormSetProps[]) => {
   }
 }
 
-// 对form赋值
+// Assign value to form
 const setValues = async (data: Recordable = {}) => {
   formModel.value = Object.assign(props.model, unref(formModel), data)
   const formExpose = await getFormExpose()

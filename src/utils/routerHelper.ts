@@ -37,7 +37,7 @@ export const getRawRoute = (route: RouteLocationNormalized): RouteLocationNormal
   }
 }
 
-// 前端控制Router生成
+// Frontend controlled router generation
 export const generateRoutesByFrontEnd = (
   routes: AppRouteRecordRaw[],
   keys: string[],
@@ -63,9 +63,9 @@ export const generateRoutesByFrontEnd = (
       ) as string
     }
 
-    // 开发者Can根据实际情况进行扩展
+    // Developers can extend according to actual situation
     for (const item of keys) {
-      // 通过path去匹配
+      // Match by path
       if (isUrl(item) && (onlyOneChild === item || route.path === item)) {
         data = Object.assign({}, route)
       } else {
@@ -91,7 +91,7 @@ export const generateRoutesByFrontEnd = (
   return res
 }
 
-// 后端控制Router生成
+// Backend controlled router generation
 export const generateRoutesByServer = (routes: AppCustomRouteRecordRaw[]): AppRouteRecordRaw[] => {
   const res: AppRouteRecordRaw[] = []
 
@@ -106,9 +106,9 @@ export const generateRoutesByServer = (routes: AppCustomRouteRecordRaw[]): AppRo
       const comModule = modules[`../${route.component}.vue`] || modules[`../${route.component}.tsx`]
       const component = route.component as string
       if (!comModule && !component.includes('#')) {
-        console.error(`未找到${route.component}.vue文件或${route.component}.tsx文件，请创建`)
+        console.error(`Cannot find ${route.component}.vue file or ${route.component}.tsx file, please create`)
       } else {
-        // 动态LoadRouterfile，可根据实际情况进行自定义逻辑
+        // Dynamically load router file, can be customized according to actual situation
         data.component =
           component === '#' ? Layout : component.includes('##') ? getParentLayout() : comModule
       }
@@ -128,7 +128,7 @@ export const pathResolve = (parentPath: string, path: string) => {
   return `${parentPath}${childPath}`.replace(/\/\//g, '/').trim()
 }
 
-// Router降级
+// Router downgrade
 export const flatMultiLevelRoutes = (routes: AppRouteRecordRaw[]) => {
   const modules: AppRouteRecordRaw[] = cloneDeep(routes)
   for (let index = 0; index < modules.length; index++) {
@@ -141,7 +141,7 @@ export const flatMultiLevelRoutes = (routes: AppRouteRecordRaw[]) => {
   return modules
 }
 
-// 层级是否大于2
+// Whether hierarchy is greater than 2
 const isMultipleRoute = (route: AppRouteRecordRaw) => {
   if (!route || !Reflect.has(route, 'children') || !route.children?.length) {
     return false
@@ -160,7 +160,7 @@ const isMultipleRoute = (route: AppRouteRecordRaw) => {
   return flag
 }
 
-// 生成二级Router
+// Generate secondary router
 const promoteRouteLevel = (route: AppRouteRecordRaw) => {
   let router: Router | null = createRouter({
     routes: [route as RouteRecordRaw],
@@ -174,7 +174,7 @@ const promoteRouteLevel = (route: AppRouteRecordRaw) => {
   route.children = route.children?.map((item) => omit(item, 'children'))
 }
 
-// Add所有子menu
+// Add all sub menus
 const addToChildren = (
   routes: RouteRecordNormalized[],
   children: AppRouteRecordRaw[],

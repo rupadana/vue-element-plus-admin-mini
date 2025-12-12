@@ -28,7 +28,7 @@ export const useForm = () => {
     return form
   }
 
-  // 一些内置的method
+  // Some built-in methods
   const methods = {
     /**
      * @description Setform组件的props

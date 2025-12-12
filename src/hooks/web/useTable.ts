@@ -36,7 +36,7 @@ export const useTable = (config: UseTableConfig) => {
   watch(
     () => pageSize.value,
     () => {
-      // 当前页不为1时，修改页数后会导致多次CallgetListmethod
+      // When current page is not 1, changing page count will cause multiple calls to getList method
       if (unref(currentPage) === 1) {
         methods.getList()
       } else {

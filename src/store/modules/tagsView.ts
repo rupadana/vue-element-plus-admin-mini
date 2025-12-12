@@ -61,7 +61,7 @@ export const useTagsViewStore = defineStore('tagsView', {
         return
       this.cachedViews = cacheMap
     },
-    // Delete某个
+    // Delete one
     delView(view: RouteLocationNormalizedLoaded) {
       this.delVisitedView(view)
       this.addCachedView()
@@ -75,7 +75,7 @@ export const useTagsViewStore = defineStore('tagsView', {
         }
       }
     },
-    // Delete缓存
+    // Delete cache
     delCachedView() {
       const route = router.currentRoute.value
       const index = findIndex<string>(this.getCachedViews, (v) => v === route.name)
@@ -83,12 +83,12 @@ export const useTagsViewStore = defineStore('tagsView', {
         this.cachedViews.delete(this.getCachedViews[index])
       }
     },
-    // Delete所有缓存和tag
+    // Delete all cache and tags
     delAllViews() {
       this.delAllVisitedViews()
       this.addCachedView()
     },
-    // Delete所有tag
+    // Delete all tags
     delAllVisitedViews() {
       const userStore = useUserStoreWithOut()
 
@@ -97,18 +97,18 @@ export const useTagsViewStore = defineStore('tagsView', {
         ? this.visitedViews.filter((tag) => tag?.meta?.affix)
         : []
     },
-    // Delete其它
+    // Delete others
     delOthersViews(view: RouteLocationNormalizedLoaded) {
       this.delOthersVisitedViews(view)
       this.addCachedView()
     },
-    // Delete其它tag
+    // Delete otherstag
     delOthersVisitedViews(view: RouteLocationNormalizedLoaded) {
       this.visitedViews = this.visitedViews.filter((v) => {
         return v?.meta?.affix || v.path === view.path
       })
     },
-    // Delete左侧
+    // Delete left
     delLeftViews(view: RouteLocationNormalizedLoaded) {
       const index = findIndex<RouteLocationNormalizedLoaded>(
         this.visitedViews,
@@ -121,7 +121,7 @@ export const useTagsViewStore = defineStore('tagsView', {
         this.addCachedView()
       }
     },
-    // Delete右侧
+    // Delete right
     delRightViews(view: RouteLocationNormalizedLoaded) {
       const index = findIndex<RouteLocationNormalizedLoaded>(
         this.visitedViews,
@@ -142,7 +142,7 @@ export const useTagsViewStore = defineStore('tagsView', {
         }
       }
     },
-    // Set当前选中的tag
+    // Set currently selected tag
     setSelectedTag(tag: RouteLocationNormalizedLoaded) {
       this.selectedTag = tag
     },

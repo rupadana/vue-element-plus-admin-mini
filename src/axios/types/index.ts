@@ -8,10 +8,10 @@ import type {
 } from 'axios'
 
 interface RequestInterceptors<T> {
-  // Request拦截
+  // Request interceptor
   requestInterceptors?: (config: InternalAxiosRequestConfig) => InternalAxiosRequestConfig
   requestInterceptorsCatch?: (err: any) => any
-  // Response拦截
+  // Response interceptor
   responseInterceptors?: (config: T) => T
   responseInterceptorsCatch?: (err: any) => any
 }

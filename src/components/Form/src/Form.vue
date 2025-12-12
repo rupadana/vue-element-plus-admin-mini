@@ -46,23 +46,23 @@ const prefixCls = getPrefixCls('form')
 export default defineComponent({
   name: 'Form',
   props: {
-    // 生成Form的layout结构array
+    // Generate Form layout structure array
     schema: {
       type: Array as PropType<FormSchema[]>,
       default: () => []
     },
-    // 是否需要栅格layout
+    // Whether grid layout is needed
     isCol: propTypes.bool.def(true),
     // formdataobject
     model: {
       type: Object as PropType<any>,
       default: () => ({})
     },
-    // 是否自动Setplaceholder
+    // Whether to auto set placeholder
     autoSetPlaceholder: propTypes.bool.def(true),
-    // 是否自定义content
+    // Whether custom content
     isCustom: propTypes.bool.def(false),
-    // formlabel宽度
+    // form label width
     labelWidth: propTypes.oneOfType([String, Number]).def('auto'),
     rules: {
       type: Object as PropType<FormRules>,
@@ -101,10 +101,10 @@ export default defineComponent({
       return propsObj
     })
 
-    // 存储forminstance
+    // Store form instance
     const formComponents = ref({})
 
-    // 存储form-iteminstance
+    // Store form-item instance
     const formItemComponents = ref({})
 
     // formdata
@@ -114,7 +114,7 @@ export default defineComponent({
       emit('register', unref(elFormRef)?.$parent, unref(elFormRef))
     })
 
-    // 对form赋值
+    // Assign value to form
     const setValues = (data: Recordable = {}) => {
       formModel.value = Object.assign(unref(formModel), data)
     }
@@ -201,7 +201,7 @@ export default defineComponent({
       getFormItemExpose
     })
 
-    // Listenform结构化array，重新生成formModel
+    // Listen to form structure array and regenerate formModel
     watch(
       () => unref(getProps).schema,
       (schema = []) => {
@@ -213,7 +213,7 @@ export default defineComponent({
       }
     )
 
-    // 渲染包裹tag，是否使用栅格layout
+    // Render wrapper tag, whether to use grid layout
     const renderWrap = () => {
       const { isCol } = unref(getProps)
       const content = isCol ? (
@@ -224,9 +224,9 @@ export default defineComponent({
       return content
     }
 
-    // 是否要渲染el-col
+    // Whether to render el-col
     const renderFormItemWrap = () => {
-      // hiddenproperty表示Hide，不做渲染
+      // hidden property means Hide, do not render
       const { schema = [], isCol } = unref(getProps)
 
       return schema
@@ -246,11 +246,11 @@ export default defineComponent({
         })
     }
 
-    // 渲染formItem
+    // Render formItem
     const renderFormItem = (item: FormSchema) => {
-      // 如果有optionApi，优先使用optionApi
+      // If optionApi exists, use optionApi first
       if (item.optionApi) {
-        // 内部自动Callinterface，不影响其它渲染
+        // Internally auto call interface, does not affect other rendering
         getOptions(item.optionApi, item)
       }
       const formItemSlots: Recordable = {
@@ -284,7 +284,7 @@ export default defineComponent({
               }
             }
 
-            // radio组和buttonstyles
+            // radio group and button styles
             if (
               item.component === ComponentNameEnum.RADIO_GROUP ||
               item.component === ComponentNameEnum.RADIO_BUTTON
@@ -298,7 +298,7 @@ export default defineComponent({
                   }
             }
 
-            // 多选框组和buttonstyles
+            // checkbox group and button styles
             if (
               item.component === ComponentNameEnum.CHECKBOX_GROUP ||
               item.component === ComponentNameEnum.CHECKBOX_BUTTON
@@ -313,7 +313,7 @@ export default defineComponent({
             }
 
             const Comp = () => {
-              // 如果field是多层path，需要转换成object
+              // If field is multi-level path, need to convert to object
               const itemVal = computed({
                 get: () => {
                   return get(formModel.value, item.field)
@@ -367,9 +367,9 @@ export default defineComponent({
       )
     }
 
-    // Filter传入Form组件的property
+    // Filter properties passed to Form component
     const getFormBindValue = () => {
-      // 避免在tag上出现多余的property
+      // Avoid extra properties on tag
       const delKeys = ['schema', 'isCol', 'autoSetPlaceholder', 'isCustom', 'model']
       const props = { ...unref(getProps) }
       for (const key in props) {
