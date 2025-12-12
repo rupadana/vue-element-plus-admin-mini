@@ -61,7 +61,7 @@ export default defineComponent({
       if (props.menuSelect) {
         props.menuSelect(index)
       }
-      // 自定义事件
+      // 自定义event
       if (isUrl(index)) {
         window.open(index)
       } else {
@@ -136,14 +136,14 @@ export default defineComponent({
     width: 100% !important;
     border-right: none;
 
-    // 设置选中时子标题的颜色
+    // Set选中时子title的颜色
     .is-active {
       & > .@{elNamespace}-sub-menu__title {
         color: var(--left-menu-text-active-color) !important;
       }
     }
 
-    // 设置子菜单悬停的高亮和背景色
+    // Set子menu悬停的高亮和背景色
     .@{elNamespace}-sub-menu__title,
     .@{elNamespace}-menu-item {
       &:hover {
@@ -152,7 +152,7 @@ export default defineComponent({
       }
     }
 
-    // 设置选中时的高亮背景和高亮颜色
+    // Set选中时的高亮背景和高亮颜色
     .@{elNamespace}-menu-item.is-active {
       color: var(--left-menu-text-active-color) !important;
       background-color: var(--left-menu-bg-active-color) !important;
@@ -166,7 +166,7 @@ export default defineComponent({
       position: relative;
     }
 
-    // 设置子菜单的背景颜色
+    // Set子menu的背景颜色
     .@{elNamespace}-menu {
       .@{elNamespace}-sub-menu__title,
       .@{elNamespace}-menu-item:not(.is-active) {
@@ -186,21 +186,21 @@ export default defineComponent({
     }
   }
 
-  // 折叠动画的时候，就需要把文字给隐藏掉
+  // 折叠animations的时候，就需要把文字给Hide掉
   :deep(.horizontal-collapse-transition) {
     .@{prefix-cls}__title {
       display: none;
     }
   }
 
-  // 水平菜单
+  // 水平menu
   &__horizontal {
     height: calc(~'var(--top-tool-height)') !important;
 
     :deep(.@{elNamespace}-menu--horizontal) {
       height: calc(~'var(--top-tool-height)');
       border-bottom: none;
-      // 重新设置底部高亮颜色
+      // 重新Setfooter高亮颜色
       & > .@{elNamespace}-sub-menu.is-active {
         .@{elNamespace}-sub-menu__title {
           border-bottom-color: var(--el-color-primary) !important;
@@ -231,14 +231,14 @@ export default defineComponent({
 
 .@{prefix-cls}--vertical,
 .@{prefix-cls}--horizontal {
-  // 设置选中时子标题的颜色
+  // Set选中时子title的颜色
   .is-active {
     & > .el-sub-menu__title {
       color: var(--left-menu-text-active-color) !important;
     }
   }
 
-  // 设置子菜单悬停的高亮和背景色
+  // Set子menu悬停的高亮和背景色
   .el-sub-menu__title,
   .el-menu-item {
     &:hover {
@@ -247,7 +247,7 @@ export default defineComponent({
     }
   }
 
-  // 设置选中时的高亮背景
+  // Set选中时的高亮背景
   .el-menu-item.is-active {
     position: relative;
     background-color: var(--left-menu-bg-active-color) !important;

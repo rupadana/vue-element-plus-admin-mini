@@ -27,10 +27,10 @@ router.beforeEach(async (to, from, next) => {
         return
       }
 
-      // 开发者可根据实际情况进行修改
+      // Developers can modify according to actual situation
       const roleRouters = userStore.getRoleRouters || []
 
-      // 是否使用动态路由
+      // Whether to use dynamic routing
       if (appStore.getDynamicRouter) {
         appStore.serverDynamicRouter
           ? await permissionStore.generateRoutes('server', roleRouters as AppCustomRouteRecordRaw[])
@@ -40,7 +40,7 @@ router.beforeEach(async (to, from, next) => {
       }
 
       permissionStore.getAddRouters.forEach((route) => {
-        router.addRoute(route as unknown as RouteRecordRaw) // 动态添加可访问路由表
+        router.addRoute(route as unknown as RouteRecordRaw) // Dynamically add accessible route table
       })
       const redirectPath = from.query.redirect || to.path
       const redirect = decodeURIComponent(redirectPath as string)
@@ -52,13 +52,13 @@ router.beforeEach(async (to, from, next) => {
     if (NO_REDIRECT_WHITE_LIST.indexOf(to.path) !== -1) {
       next()
     } else {
-      next(`/login?redirect=${to.path}`) // 否则全部重定向到登录页
+      next(`/login?redirect=${to.path}`) // Otherwise redirect all to login page
     }
   }
 })
 
 router.afterEach((to) => {
   useTitle(to?.meta?.title as string)
-  done() // 结束Progress
+  done() // End Progress
   loadDone()
 })

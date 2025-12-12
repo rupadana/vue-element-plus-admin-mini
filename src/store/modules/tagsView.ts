@@ -61,12 +61,12 @@ export const useTagsViewStore = defineStore('tagsView', {
         return
       this.cachedViews = cacheMap
     },
-    // 删除某个
+    // Delete某个
     delView(view: RouteLocationNormalizedLoaded) {
       this.delVisitedView(view)
       this.addCachedView()
     },
-    // 删除tag
+    // Deletetag
     delVisitedView(view: RouteLocationNormalizedLoaded) {
       for (const [i, v] of this.visitedViews.entries()) {
         if (v.path === view.path) {
@@ -75,7 +75,7 @@ export const useTagsViewStore = defineStore('tagsView', {
         }
       }
     },
-    // 删除缓存
+    // Delete缓存
     delCachedView() {
       const route = router.currentRoute.value
       const index = findIndex<string>(this.getCachedViews, (v) => v === route.name)
@@ -83,12 +83,12 @@ export const useTagsViewStore = defineStore('tagsView', {
         this.cachedViews.delete(this.getCachedViews[index])
       }
     },
-    // 删除所有缓存和tag
+    // Delete所有缓存和tag
     delAllViews() {
       this.delAllVisitedViews()
       this.addCachedView()
     },
-    // 删除所有tag
+    // Delete所有tag
     delAllVisitedViews() {
       const userStore = useUserStoreWithOut()
 
@@ -97,18 +97,18 @@ export const useTagsViewStore = defineStore('tagsView', {
         ? this.visitedViews.filter((tag) => tag?.meta?.affix)
         : []
     },
-    // 删除其它
+    // Delete其它
     delOthersViews(view: RouteLocationNormalizedLoaded) {
       this.delOthersVisitedViews(view)
       this.addCachedView()
     },
-    // 删除其它tag
+    // Delete其它tag
     delOthersVisitedViews(view: RouteLocationNormalizedLoaded) {
       this.visitedViews = this.visitedViews.filter((v) => {
         return v?.meta?.affix || v.path === view.path
       })
     },
-    // 删除左侧
+    // Delete左侧
     delLeftViews(view: RouteLocationNormalizedLoaded) {
       const index = findIndex<RouteLocationNormalizedLoaded>(
         this.visitedViews,
@@ -121,7 +121,7 @@ export const useTagsViewStore = defineStore('tagsView', {
         this.addCachedView()
       }
     },
-    // 删除右侧
+    // Delete右侧
     delRightViews(view: RouteLocationNormalizedLoaded) {
       const index = findIndex<RouteLocationNormalizedLoaded>(
         this.visitedViews,
@@ -142,7 +142,7 @@ export const useTagsViewStore = defineStore('tagsView', {
         }
       }
     },
-    // 设置当前选中的tag
+    // Set当前选中的tag
     setSelectedTag(tag: RouteLocationNormalizedLoaded) {
       this.selectedTag = tag
     },

@@ -2,8 +2,8 @@
 
 /**
  *
- * @param component 需要注册的组件
- * @param alias 组件别名
+ * @param component Component to register
+ * @param alias Component alias
  * @returns any
  */
 export const withInstall = <T>(component: T, alias?: string) => {
@@ -18,16 +18,16 @@ export const withInstall = <T>(component: T, alias?: string) => {
 }
 
 /**
- * @param str 需要转下划线的驼峰字符串
- * @returns 字符串下划线
+ * @param str Camel case string to convert to underscore
+ * @returns String with underscores
  */
 export const humpToUnderline = (str: string): string => {
   return str.replace(/([A-Z])/g, '-$1').toLowerCase()
 }
 
 /**
- * @param str 需要转驼峰的下划线字符串
- * @returns 字符串驼峰
+ * @param str Underscore string to convert to camel case
+ * @returns Camel case string
  */
 export const underlineToHump = (str: string): string => {
   if (!str) return ''
@@ -37,7 +37,7 @@ export const underlineToHump = (str: string): string => {
 }
 
 /**
- * 驼峰转横杠
+ * Convert camel case to dash
  */
 export const humpToDash = (str: string): string => {
   return str.replace(/([A-Z])/g, '-$1').toLowerCase()
@@ -52,9 +52,9 @@ export const getCssVar = (prop: string, dom = document.documentElement) => {
 }
 
 /**
- * 查找数组对象的某个下标
- * @param {Array} ary 查找的数组
- * @param {Functon} fn 判断的方法
+ * Findarrayobject的某个下标
+ * @param {Array} ary Find的array
+ * @param {Functon} fn Determine的method
  */
 // eslint-disable-next-line
 export const findIndex = <T = Recordable>(ary: Array<T>, fn: Fn): number => {
@@ -77,7 +77,7 @@ export const trim = (str: string) => {
 }
 
 /**
- * @param {Date | number | string} time 需要转换的时间
+ * @param {Date | number | string} time 需要转换的Time
  * @param {String} fmt 需要转换的格式 如 yyyy-MM-dd、yyyy-MM-dd HH:mm:ss
  */
 export function formatTime(time: Date | number | string, fmt: string) {
@@ -109,7 +109,7 @@ export function formatTime(time: Date | number | string, fmt: string) {
 }
 
 /**
- * 生成随机字符串
+ * 生成随机string
  */
 export function toAnyString() {
   const str: string = 'xxxxx-xxxxx-4xxxx-yxxxx-xxxxx'.replace(/[xy]/g, (c: string) => {
@@ -128,7 +128,7 @@ export function firstUpperCase(str: string) {
 }
 
 /**
- * 把对象转为formData
+ * 把object转为formData
  */
 export function objToFormData(obj: Recordable) {
   const formData = new FormData()

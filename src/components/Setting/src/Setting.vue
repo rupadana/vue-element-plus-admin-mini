@@ -35,21 +35,21 @@ const setSystemTheme = (color: string) => {
   setMenuTheme(trim(unref(leftMenuBgColor)))
 }
 
-// 头部主题相关
+// header主题相关
 const headerTheme = ref(appStore.getTheme.topHeaderBgColor || '')
 
 const setHeaderTheme = (color: string) => {
   appStore.setHeaderTheme(color)
 }
 
-// 菜单主题相关
+// menu主题相关
 const menuTheme = ref(appStore.getTheme.leftMenuBgColor || '')
 
 const setMenuTheme = (color: string) => {
   appStore.setMenuTheme(color)
 }
 
-// 监听layout变化，重置一些主题色
+// Listenlayout变化，Reset一些主题色
 // watch(
 //   () => layout.value,
 //   (n) => {
@@ -66,25 +66,25 @@ const setMenuTheme = (color: string) => {
 const copyConfig = async () => {
   const { copy, copied, isSupported } = useClipboard({
     source: `
-      // 面包屑
+      // breadcrumb
       breadcrumb: ${appStore.getBreadcrumb},
-      // 面包屑图标
+      // breadcrumbicons
       breadcrumbIcon: ${appStore.getBreadcrumbIcon},
-      // 折叠图标
+      // 折叠icons
       hamburger: ${appStore.getHamburger},
-      // 全屏图标
+      // 全屏icons
       screenfull: ${appStore.getScreenfull},
-      // 尺寸图标
+      // 尺寸icons
       size: ${appStore.getSize},
-      // 多语言图标
+      // Multi-languageicons
       locale: ${appStore.getLocale},
-      // 标签页
+      // tabs
       tagsView: ${appStore.getTagsView},
-      // 标签页图标
+      // tabsicons
       getTagsViewIcon: ${appStore.getTagsViewIcon},
       // logo
       logo: ${appStore.getLogo},
-      // 菜单手风琴
+      // menu手风琴
       uniqueOpened: ${appStore.getUniqueOpened},
       // 固定header
       fixedHeader: ${appStore.getFixedHeader},
@@ -92,7 +92,7 @@ const copyConfig = async () => {
       footer: ${appStore.getFooter},
       // 灰色模式
       greyMode: ${appStore.getGreyMode},
-      // layout布局
+      // layoutlayout
       layout: '${appStore.getLayout}',
       // 暗黑模式
       isDark: ${appStore.getIsDark},
@@ -102,31 +102,31 @@ const copyConfig = async () => {
       theme: {
         // 主题色
         elColorPrimary: '${appStore.getTheme.elColorPrimary}',
-        // 左侧菜单边框颜色
+        // 左侧menu边框颜色
         leftMenuBorderColor: '${appStore.getTheme.leftMenuBorderColor}',
-        // 左侧菜单背景颜色
+        // 左侧menu背景颜色
         leftMenuBgColor: '${appStore.getTheme.leftMenuBgColor}',
-        // 左侧菜单浅色背景颜色
+        // 左侧menu浅色背景颜色
         leftMenuBgLightColor: '${appStore.getTheme.leftMenuBgLightColor}',
-        // 左侧菜单选中背景颜色
+        // 左侧menu选中背景颜色
         leftMenuBgActiveColor: '${appStore.getTheme.leftMenuBgActiveColor}',
-        // 左侧菜单收起选中背景颜色
+        // 左侧menu收起选中背景颜色
         leftMenuCollapseBgActiveColor: '${appStore.getTheme.leftMenuCollapseBgActiveColor}',
-        // 左侧菜单字体颜色
+        // 左侧menu字体颜色
         leftMenuTextColor: '${appStore.getTheme.leftMenuTextColor}',
-        // 左侧菜单选中字体颜色
+        // 左侧menu选中字体颜色
         leftMenuTextActiveColor: '${appStore.getTheme.leftMenuTextActiveColor}',
         // logo字体颜色
         logoTitleTextColor: '${appStore.getTheme.logoTitleTextColor}',
         // logo边框颜色
         logoBorderColor: '${appStore.getTheme.logoBorderColor}',
-        // 头部背景颜色
+        // header背景颜色
         topHeaderBgColor: '${appStore.getTheme.topHeaderBgColor}',
-        // 头部字体颜色
+        // header字体颜色
         topHeaderTextColor: '${appStore.getTheme.topHeaderTextColor}',
-        // 头部悬停颜色
+        // header悬停颜色
         topHeaderHoverColor: '${appStore.getTheme.topHeaderHoverColor}',
-        // 头部边框颜色
+        // header边框颜色
         topToolBorderColor: '${appStore.getTheme.topToolBorderColor}'
       }
     `,
@@ -142,7 +142,7 @@ const copyConfig = async () => {
   }
 }
 
-// 清空缓存
+// Clear缓存
 const clear = () => {
   storageClear()
   window.location.reload()

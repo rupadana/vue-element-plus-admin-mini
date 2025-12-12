@@ -8,9 +8,9 @@ const { t } = useI18n()
 
 /**
  *
- * @param schema 对应组件数据
- * @returns 返回提示信息对象
- * @description 用于自动设置placeholder
+ * @param schema 对应组件data
+ * @returns returnTipInfoobject
+ * @description 用于自动Setplaceholder
  */
 export const setTextPlaceholder = (schema: FormSchema): PlaceholderModel => {
   const textMap = [
@@ -57,12 +57,12 @@ export const setTextPlaceholder = (schema: FormSchema): PlaceholderModel => {
 /**
  *
  * @param col 内置栅格
- * @returns 返回栅格属性
- * @description 合并传入进来的栅格属性
+ * @returns return栅格property
+ * @description 合并传入进来的栅格property
  */
 export const setGridProp = (col: ColProps = {}): ColProps => {
   const colProps: ColProps = {
-    // 如果有span，代表用户优先级更高，所以不需要默认栅格
+    // 如果有span，代表user优先级更高，所以不需要默认栅格
     ...(col.span
       ? {}
       : {
@@ -79,12 +79,12 @@ export const setGridProp = (col: ColProps = {}): ColProps => {
 
 /**
  *
- * @param item 传入的组件属性
- * @returns 默认添加 clearable 属性
+ * @param item 传入的组件property
+ * @returns 默认Add clearable property
  */
 export const setComponentProps = (item: FormSchema): Recordable => {
   // const notNeedClearable = ['ColorPicker']
-  // 拆分事件并组合
+  // 拆分event并组合
   const onEvents = (item?.componentProps as any)?.on || {}
   const newOnEvents: Recordable = {}
 
@@ -101,7 +101,7 @@ export const setComponentProps = (item: FormSchema): Recordable => {
     ...item.componentProps,
     ...newOnEvents
   }
-  // 需要删除额外的属性
+  // 需要Delete额外的property
   if (componentProps.slots) {
     delete componentProps.slots
   }
@@ -113,8 +113,8 @@ export const setComponentProps = (item: FormSchema): Recordable => {
 
 /**
  *
- * @param formModel 表单数据
- * @param slotsProps 插槽属性
+ * @param formModel formdata
+ * @param slotsProps 插槽property
  */
 export const setItemComponentSlots = (slotsProps: Recordable = {}): Recordable => {
   const slotObj: Recordable = {}
@@ -136,7 +136,7 @@ export const setItemComponentSlots = (slotsProps: Recordable = {}): Recordable =
 
 /**
  *
- * @param schema Form表单结构化数组
+ * @param schema Formform结构化array
  * @param formModel FormMoel
  * @returns FormMoel
  * @description 生成对应的formModel

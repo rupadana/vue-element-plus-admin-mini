@@ -26,7 +26,7 @@ axiosInstance.interceptors.response.use(
   (res: AxiosResponse) => {
     const url = res.config.url || ''
     abortControllerMap.delete(url)
-    // 这里不能做任何处理，否则后面的 interceptors 拿不到完整的上下文了
+    // 这里Cannot做任何Handle，否则后面的 interceptors 拿不到完整的上下文了
     return res
   },
   (error: AxiosError) => {

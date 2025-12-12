@@ -59,7 +59,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         : undefined,
       EslintPlugin({
         cache: false,
-        include: ['src/**/*.vue', 'src/**/*.ts', 'src/**/*.tsx'] // 检查的文件
+        include: ['src/**/*.vue', 'src/**/*.ts', 'src/**/*.tsx'] // Check的file
       }),
       VueI18nPlugin({
         runtimeOnly: true,
@@ -138,7 +138,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     server: {
       port: 3005,
       proxy: {
-        // 选项写法
+        // options写法
         '/api': {
           target: 'http://127.0.0.1:8000',
           changeOrigin: true,
