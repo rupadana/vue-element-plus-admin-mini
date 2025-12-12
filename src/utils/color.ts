@@ -12,9 +12,9 @@ export const isHexColor = (color: string) => {
 
 /**
  * RGB 颜色值转换为 十六进制颜色值.
- * r, g, 和 b 需要在 [0, 255] 范围内
+ * r, g, and b need to be in [0, 255] range
  *
- * @return  String          class似#ff00ff
+ * @return  String          like #ff00ff
  * @param r
  * @param g
  * @param b

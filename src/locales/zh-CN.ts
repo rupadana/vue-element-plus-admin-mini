@@ -289,10 +289,10 @@ export default {
     subitem: '子项',
     formValidation: '表单验证',
     verifyReset: '验证重置',
-    // 富文本edit器
+    // 富文本编辑器
     richText: '富文本编辑器',
     form: '表单',
-    // 远程Load
+    // 远程加载
     remoteLoading: '远程加载',
     // 聚焦
     focus: '聚焦',

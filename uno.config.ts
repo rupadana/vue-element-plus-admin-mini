@@ -19,7 +19,7 @@ const createPresetIcons = () => {
     return [
       presetIcons({
         prefix: ''
-        // 由于默认Load的是所有的icons，启动会非常慢，Can在这里去Load需要的icons，确保启动速度
+        // Since all icons are loaded by default, startup will be very slow. You can load needed icons here to ensure startup speed
         // collections: {
         //   carbon: () => import('@iconify-json/carbon/icons.json').then(i => i.default),
         //   mdi: () => import('@iconify-json/mdi/icons.json').then(i => i.default),

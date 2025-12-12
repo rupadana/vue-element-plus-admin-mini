@@ -59,7 +59,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
         : undefined,
       EslintPlugin({
         cache: false,
-        include: ['src/**/*.vue', 'src/**/*.ts', 'src/**/*.tsx'] // Check的file
+        include: ['src/**/*.vue', 'src/**/*.ts', 'src/**/*.tsx'] // Files to check
       }),
       VueI18nPlugin({
         runtimeOnly: true,
@@ -124,7 +124,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       // brotliSize: false,
       rollupOptions: {
         plugins: env.VITE_USE_BUNDLE_ANALYZER === 'true' ? [visualizer()] : undefined,
-        // 拆包
+        // Split packages
         output: {
           manualChunks: {
             'vue-chunks': ['vue', 'vue-router', 'pinia', 'vue-i18n'],
@@ -138,7 +138,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     server: {
       port: 3005,
       proxy: {
-        // options写法
+        // Options syntax
         '/api': {
           target: 'http://127.0.0.1:8000',
           changeOrigin: true,

@@ -52,9 +52,9 @@ export const getCssVar = (prop: string, dom = document.documentElement) => {
 }
 
 /**
- * Findarrayobject的某个下标
- * @param {Array} ary Find的array
- * @param {Functon} fn Determine的method
+ * Find index of array object
+ * @param {Array} ary Array to search
+ * @param {Functon} fn Method for determination
  */
 // eslint-disable-next-line
 export const findIndex = <T = Recordable>(ary: Array<T>, fn: Fn): number => {
