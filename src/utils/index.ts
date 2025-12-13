@@ -77,8 +77,8 @@ export const trim = (str: string) => {
 }
 
 /**
- * @param {Date | number | string} time 需要转换的Time
- * @param {String} fmt 需要转换的格式 如 yyyy-MM-dd、yyyy-MM-dd HH:mm:ss
+ * @param {Date | number | string} time Time to convert
+ * @param {String} fmt Format to convert to, such as yyyy-MM-dd, yyyy-MM-dd HH:mm:ss
  */
 export function formatTime(time: Date | number | string, fmt: string) {
   if (!time) return ''
@@ -109,7 +109,7 @@ export function formatTime(time: Date | number | string, fmt: string) {
 }
 
 /**
- * 生成随机string
+ * Generate random string
  */
 export function toAnyString() {
   const str: string = 'xxxxx-xxxxx-4xxxx-yxxxx-xxxxx'.replace(/[xy]/g, (c: string) => {
@@ -121,14 +121,14 @@ export function toAnyString() {
 }
 
 /**
- * 首字母大写
+ * Capitalize first letter
  */
 export function firstUpperCase(str: string) {
   return str.toLowerCase().replace(/( |^)[a-z]/g, (L) => L.toUpperCase())
 }
 
 /**
- * 把object转为formData
+ * Convert object to formData
  */
 export function objToFormData(obj: Recordable) {
   const formData = new FormData()

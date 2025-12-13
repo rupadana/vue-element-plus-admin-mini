@@ -262,7 +262,7 @@ const signIn = async () => {
   })
 }
 
-// GetroleInfo
+// Get role info
 const getRole = async () => {
   const formData = await getFormData<UserType>()
   const params = {

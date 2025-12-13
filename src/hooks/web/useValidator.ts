@@ -45,7 +45,7 @@ export const useValidator = () => {
     }
   }
 
-  // 两个string是否想等
+  // Whether two strings are equal
   const isEqual = (val1: string, val2: string, callback: Callback, message: string) => {
     if (val1 === val2) {
       callback()

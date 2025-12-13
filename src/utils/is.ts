@@ -104,7 +104,7 @@ export const isDark = (): boolean => {
   return window.matchMedia('(prefers-color-scheme: dark)').matches
 }
 
-// 是否是imagelink
+// Whether it is an image link
 export const isImgPath = (path: string): boolean => {
   return /(https?:\/\/|data:image\/).*?\.(png|jpg|jpeg|gif|svg|webp|ico)/gi.test(path)
 }
