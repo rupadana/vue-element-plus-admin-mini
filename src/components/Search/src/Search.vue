@@ -12,24 +12,24 @@ import { FormItemProp } from 'element-plus'
 import { isObject, isEmptyVal } from '@/utils/is'
 
 const props = defineProps({
-  // 生成Form的布局结构数组
+  // Generate Form layout structure array
   schema: {
     type: Array as PropType<FormSchema[]>,
     default: () => []
   },
-  // 是否需要栅格布局
+  // Whether grid layout is needed
   isCol: propTypes.bool.def(false),
-  // 表单label宽度
+  // form label width
   labelWidth: propTypes.oneOfType([String, Number]).def('auto'),
-  // 操作按钮风格位置
+  // Actionbutton风格位置
   layout: propTypes.string.validate((v: string) => ['inline', 'bottom'].includes(v)).def('inline'),
-  // 底部按钮的对齐方式
+  // footerbutton的对齐方式
   buttonPosition: propTypes.string
     .validate((v: string) => ['left', 'center', 'right'].includes(v))
     .def('center'),
   showSearch: propTypes.bool.def(true),
   showReset: propTypes.bool.def(true),
-  // 是否显示伸缩
+  // 是否Show伸缩
   showExpand: propTypes.bool.def(false),
   // 伸缩的界限字段
   expandField: propTypes.string.def(''),
@@ -48,7 +48,7 @@ const emit = defineEmits(['search', 'reset', 'register', 'validate'])
 
 const visible = ref(true)
 
-// 表单数据
+// formdata
 const formModel = ref<Recordable>(props.model)
 
 const newSchema = computed(() => {
@@ -122,7 +122,7 @@ const setProps = (props: SearchProps = {}) => {
 
 const schemaRef = ref<FormSchema[]>([])
 
-// 监听表单结构化数组，重新生成formModel
+// Listen to form structure array and regenerate formModel
 watch(
   () => unref(newSchema),
   async (schema = []) => {
@@ -138,7 +138,7 @@ watch(
 const filterModel = async () => {
   const model = await getFormData()
   if (unref(getProps).removeNoValueItem) {
-    // 使用reduce过滤空值，并返回一个新对象
+    // 使用reduceFilter空值，并return一个新object
     return Object.keys(model).reduce((prev, next) => {
       const value = model[next]
       if (!isEmptyVal(value)) {
@@ -194,7 +194,7 @@ const setSchema = (schemaProps: FormSetProps[]) => {
   }
 }
 
-// 对表单赋值
+// Assign value to form
 const setValues = async (data: Recordable = {}) => {
   formModel.value = Object.assign(props.model, unref(formModel), data)
   const formExpose = await getFormExpose()

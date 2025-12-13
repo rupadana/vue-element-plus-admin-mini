@@ -75,7 +75,7 @@ const testList: string[] = [
 ]
 
 export default [
-  // 列表接口
+  // listinterface
   {
     url: '/mock/role/list',
     method: 'get',

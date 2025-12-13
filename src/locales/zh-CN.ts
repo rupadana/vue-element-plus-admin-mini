@@ -387,9 +387,9 @@ export default {
     center: '中',
     right: '右',
     dynamicOptions: '动态选项',
-    // 删除单选框
+    // Deleteradio
     deleteRadio: '删除单选框',
-    // 还原单选框
+    // 还原radio
     restoreRadio: '还原单选框',
     loading: '加载中',
     reset: '重置'
@@ -484,21 +484,21 @@ export default {
     remark: '备注',
     remarkMessage1: '后端控制路由权限',
     remarkMessage2: '前端控制路由权限',
-    // 部门列表
+    // departmentlist
     departmentList: '部门列表',
     searchDepartment: '搜索部门',
     account: '账号',
     email: '邮箱',
     createTime: '创建时间',
-    // 所属部门
+    // 所属department
     department: '所属部门',
     departmentName: '部门名称',
     status: '状态',
-    // 启用
+    // Enable
     enable: '启用',
-    // 禁用
+    // Disable
     disable: '禁用',
-    // 上级部门
+    // 上级department
     superiorDepartment: '上级部门'
   },
   menu: {

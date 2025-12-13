@@ -290,24 +290,24 @@ export default {
     subitem: 'Subitem',
     formValidation: 'Form validation',
     verifyReset: 'Verify reset',
-    // 富文本编辑器
+    // Rich text editor
     richText: 'Rich text',
     form: 'Form',
-    // 远程加载
+    // Remote loading
     remoteLoading: 'Remote loading',
-    // 聚焦
+    // Focus
     focus: 'Focus',
     treeSelect: 'Tree Select',
     showCheckbox: 'Show Checkbox',
     selectAnyLevel: 'Select Any Level',
     multiple: 'Multiple',
     filterable: 'Filterable',
-    // 自定义节点内容
+    // Custom node content
     customContent: 'Custom content',
-    // 懒加载
+    // Lazy loading
     lazyLoad: 'Lazy load',
     upload: 'Upload',
-    // 用户头像
+    // User avatar
     userAvatar: 'User avatar'
   },
   guideDemo: {
@@ -393,9 +393,9 @@ export default {
     center: 'center',
     right: 'right',
     dynamicOptions: 'Dynamic options',
-    // 删除单选框
+    // Delete radio button
     deleteRadio: 'Delete radio',
-    // 还原单选框
+    // Restore radio button
     restoreRadio: 'Restore radio',
     loading: 'Loading',
     reset: 'Reset'
@@ -491,14 +491,14 @@ export default {
     remark: 'Remark',
     remarkMessage1: 'Back end control routing permission',
     remarkMessage2: 'Front end control routing permission',
-    // 部门列表
+    // Department list
     departmentList: 'Department list',
-    // 搜索部门
+    // Search department
     searchDepartment: 'Search department',
     account: 'Account',
     email: 'Email',
     createTime: 'Create time',
-    // 所属部门
+    // Affiliated department
     department: 'Department',
     departmentName: 'Department name',
     status: 'Status',
@@ -509,7 +509,7 @@ export default {
   menu: {
     menuName: 'Menu name',
     icon: 'Icon',
-    // 权限
+    // Permission identifier
     permission: 'Permission',
     component: 'Component',
     path: 'Path',

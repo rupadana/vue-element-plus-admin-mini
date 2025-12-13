@@ -4,8 +4,8 @@ export const useDesign = () => {
   const lessVariables = variables
 
   /**
-   * @param scope 类名
-   * @returns 返回空间名-类名
+   * @param scope class名
+   * @returns return空间名-class名
    */
   const getPrefixCls = (scope: string) => {
     return `${lessVariables.namespace}-${scope}`

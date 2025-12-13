@@ -14,58 +14,58 @@ const appStore = useAppStore()
 
 const { t } = useI18n()
 
-// 面包屑
+// breadcrumb
 const breadcrumb = ref(appStore.getBreadcrumb)
 
 const breadcrumbChange = (show: boolean) => {
   appStore.setBreadcrumb(show)
 }
 
-// 面包屑图标
+// breadcrumbicons
 const breadcrumbIcon = ref(appStore.getBreadcrumbIcon)
 
 const breadcrumbIconChange = (show: boolean) => {
   appStore.setBreadcrumbIcon(show)
 }
 
-// 折叠图标
+// 折叠icons
 const hamburger = ref(appStore.getHamburger)
 
 const hamburgerChange = (show: boolean) => {
   appStore.setHamburger(show)
 }
 
-// 全屏图标
+// 全屏icons
 const screenfull = ref(appStore.getScreenfull)
 
 const screenfullChange = (show: boolean) => {
   appStore.setScreenfull(show)
 }
 
-// 尺寸图标
+// 尺寸icons
 const size = ref(appStore.getSize)
 
 const sizeChange = (show: boolean) => {
   appStore.setSize(show)
 }
 
-// 多语言图标
+// Multi-languageicons
 const locale = ref(appStore.getLocale)
 
 const localeChange = (show: boolean) => {
   appStore.setLocale(show)
 }
 
-// 标签页
+// tabs
 const tagsView = ref(appStore.getTagsView)
 
 const tagsViewChange = (show: boolean) => {
-  // 切换标签栏显示时，同步切换标签栏的高度
+  // 切换tag栏Show时，Sync切换tag栏的高度
   setCssVar('--tags-view-height', show ? '35px' : '0px')
   appStore.setTagsView(show)
 }
 
-// 标签页图标
+// tabsicons
 const tagsViewIcon = ref(appStore.getTagsViewIcon)
 
 const tagsViewIconChange = (show: boolean) => {
@@ -79,14 +79,14 @@ const logoChange = (show: boolean) => {
   appStore.setLogo(show)
 }
 
-// 菜单手风琴
+// menu手风琴
 const uniqueOpened = ref(appStore.getUniqueOpened)
 
 const uniqueOpenedChange = (uniqueOpened: boolean) => {
   appStore.setUniqueOpened(uniqueOpened)
 }
 
-// 固定头部
+// 固定header
 const fixedHeader = ref(appStore.getFixedHeader)
 
 const fixedHeaderChange = (show: boolean) => {
@@ -107,7 +107,7 @@ const greyModeChange = (show: boolean) => {
   appStore.setGreyMode(show)
 }
 
-// 动态路由
+// 动态Router
 const dynamicRouter = ref(!!appStore.getDynamicRouter)
 
 const dynamicRouterChange = (show: boolean) => {
@@ -115,7 +115,7 @@ const dynamicRouterChange = (show: boolean) => {
   appStore.setDynamicRouter(show)
 }
 
-// 服务端动态路由
+// 服务端动态Router
 const serverDynamicRouter = ref(appStore.getServerDynamicRouter)
 
 const serverDynamicRouterChange = (show: boolean) => {
@@ -123,7 +123,7 @@ const serverDynamicRouterChange = (show: boolean) => {
   appStore.setServerDynamicRouter(show)
 }
 
-// 固定菜单
+// 固定menu
 const fixedMenu = ref(appStore.getFixedMenu)
 
 const fixedMenuChange = (show: boolean) => {

@@ -46,23 +46,23 @@ const prefixCls = getPrefixCls('form')
 export default defineComponent({
   name: 'Form',
   props: {
-    // 生成Form的布局结构数组
+    // Generate Form layout structure array
     schema: {
       type: Array as PropType<FormSchema[]>,
       default: () => []
     },
-    // 是否需要栅格布局
+    // Whether grid layout is needed
     isCol: propTypes.bool.def(true),
-    // 表单数据对象
+    // formdataobject
     model: {
       type: Object as PropType<any>,
       default: () => ({})
     },
-    // 是否自动设置placeholder
+    // Whether to auto set placeholder
     autoSetPlaceholder: propTypes.bool.def(true),
-    // 是否自定义内容
+    // Whether custom content
     isCustom: propTypes.bool.def(false),
-    // 表单label宽度
+    // form label width
     labelWidth: propTypes.oneOfType([String, Number]).def('auto'),
     rules: {
       type: Object as PropType<FormRules>,
@@ -90,7 +90,7 @@ export default defineComponent({
   },
   emits: ['register'],
   setup(props, { slots, expose, emit }) {
-    // element form 实例
+    // element form instance
     const elFormRef = ref<ComponentRef<typeof ElForm>>()
 
     const mergeProps = ref<FormProps>({})
@@ -101,20 +101,20 @@ export default defineComponent({
       return propsObj
     })
 
-    // 存储表单实例
+    // Store form instance
     const formComponents = ref({})
 
-    // 存储form-item实例
+    // Store form-item instance
     const formItemComponents = ref({})
 
-    // 表单数据
+    // formdata
     const formModel = ref<Recordable>(props.model)
 
     onMounted(() => {
       emit('register', unref(elFormRef)?.$parent, unref(elFormRef))
     })
 
-    // 对表单赋值
+    // Assign value to form
     const setValues = (data: Recordable = {}) => {
       formModel.value = Object.assign(unref(formModel), data)
     }
@@ -167,16 +167,16 @@ export default defineComponent({
     }
 
     /**
-     * @description: 获取表单组件实例
-     * @param filed 表单字段
+     * @description: Getform组件instance
+     * @param filed form字段
      */
     const getComponentExpose = (filed: string) => {
       return unref(formComponents)[filed]
     }
 
     /**
-     * @description: 获取formItem实例
-     * @param filed 表单字段
+     * @description: GetformIteminstance
+     * @param filed form字段
      */
     const getFormItemExpose = (filed: string) => {
       return unref(formItemComponents)[filed]
@@ -201,7 +201,7 @@ export default defineComponent({
       getFormItemExpose
     })
 
-    // 监听表单结构化数组，重新生成formModel
+    // Listen to form structure array and regenerate formModel
     watch(
       () => unref(getProps).schema,
       (schema = []) => {
@@ -213,7 +213,7 @@ export default defineComponent({
       }
     )
 
-    // 渲染包裹标签，是否使用栅格布局
+    // Render wrapper tag, whether to use grid layout
     const renderWrap = () => {
       const { isCol } = unref(getProps)
       const content = isCol ? (
@@ -224,9 +224,9 @@ export default defineComponent({
       return content
     }
 
-    // 是否要渲染el-col
+    // Whether to render el-col
     const renderFormItemWrap = () => {
-      // hidden属性表示隐藏，不做渲染
+      // hidden property means Hide, do not render
       const { schema = [], isCol } = unref(getProps)
 
       return schema
@@ -246,11 +246,11 @@ export default defineComponent({
         })
     }
 
-    // 渲染formItem
+    // Render formItem
     const renderFormItem = (item: FormSchema) => {
-      // 如果有optionApi，优先使用optionApi
+      // If optionApi exists, use optionApi first
       if (item.optionApi) {
-        // 内部自动调用接口，不影响其它渲染
+        // Internally auto call interface, does not affect other rendering
         getOptions(item.optionApi, item)
       }
       const formItemSlots: Recordable = {
@@ -277,14 +277,14 @@ export default defineComponent({
                   }
             }
 
-            // 虚拟列表
+            // 虚拟list
             if (item.component === ComponentNameEnum.SELECT_V2 && componentSlots.default) {
               slotsMap.default = ({ item }) => {
                 return componentSlots.default(item)
               }
             }
 
-            // 单选框组和按钮样式
+            // radio group and button styles
             if (
               item.component === ComponentNameEnum.RADIO_GROUP ||
               item.component === ComponentNameEnum.RADIO_BUTTON
@@ -298,7 +298,7 @@ export default defineComponent({
                   }
             }
 
-            // 多选框组和按钮样式
+            // checkbox group and button styles
             if (
               item.component === ComponentNameEnum.CHECKBOX_GROUP ||
               item.component === ComponentNameEnum.CHECKBOX_BUTTON
@@ -313,7 +313,7 @@ export default defineComponent({
             }
 
             const Comp = () => {
-              // 如果field是多层路径，需要转换成对象
+              // If field is multi-level path, need to convert to object
               const itemVal = computed({
                 get: () => {
                   return get(formModel.value, item.field)
@@ -367,9 +367,9 @@ export default defineComponent({
       )
     }
 
-    // 过滤传入Form组件的属性
+    // Filter properties passed to Form component
     const getFormBindValue = () => {
-      // 避免在标签上出现多余的属性
+      // Avoid extra properties on tag
       const delKeys = ['schema', 'isCol', 'autoSetPlaceholder', 'isCustom', 'model']
       const props = { ...unref(getProps) }
       for (const key in props) {

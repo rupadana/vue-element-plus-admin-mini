@@ -15,7 +15,7 @@ const appStore = useAppStore()
 // 是否是移动端
 const mobile = computed(() => appStore.getMobile)
 
-// 菜单折叠
+// menu collapse
 const collapse = computed(() => appStore.getCollapse)
 
 const layout = computed(() => appStore.getLayout)

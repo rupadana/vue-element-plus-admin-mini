@@ -25,7 +25,7 @@ const props = defineProps({
 
 const emit = defineEmits(['change', 'update:modelValue'])
 
-// 编辑器实例，必须用 shallowRef
+// edit器instance，Must用 shallowRef
 const editorRef = shallowRef<IDomEditor>()
 
 const valueHtml = ref('')
@@ -41,7 +41,7 @@ watch(
   }
 )
 
-// 监听
+// Listen
 watch(
   () => valueHtml.value,
   (val: string) => {
@@ -53,7 +53,7 @@ const handleCreated = (editor: IDomEditor) => {
   editorRef.value = editor
 }
 
-// 编辑器配置
+// edit器configuration
 const editorConfig = computed((): IEditorConfig => {
   return Object.assign(
     {
@@ -91,12 +91,12 @@ const editorStyle = computed(() => {
   }
 })
 
-// 回调函数
+// callbackfunction
 const handleChange = (editor: IDomEditor) => {
   emit('change', editor)
 }
 
-// 组件销毁时，及时销毁编辑器
+// 组件销毁时，及时销毁edit器
 onBeforeUnmount(() => {
   const editor = unref(editorRef.value)
 

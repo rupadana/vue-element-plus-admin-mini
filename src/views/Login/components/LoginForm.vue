@@ -243,13 +243,13 @@ const signIn = async () => {
           }
           userStore.setRememberMe(unref(remember))
           userStore.setUserInfo(res.data)
-          // 是否使用动态路由
+          // Whether to use dynamic routing
           if (appStore.getDynamicRouter) {
             getRole()
           } else {
             await permissionStore.generateRoutes('static').catch(() => {})
             permissionStore.getAddRouters.forEach((route) => {
-              addRoute(route as RouteRecordRaw) // 动态添加可访问路由表
+              addRoute(route as RouteRecordRaw) // Dynamically add accessible route table
             })
             permissionStore.setIsAddRouters(true)
             push({ path: redirect.value || permissionStore.addRouters[0].path })
@@ -262,7 +262,7 @@ const signIn = async () => {
   })
 }
 
-// 获取角色信息
+// Get role info
 const getRole = async () => {
   const formData = await getFormData<UserType>()
   const params = {
@@ -280,7 +280,7 @@ const getRole = async () => {
       : await permissionStore.generateRoutes('frontEnd', routers).catch(() => {})
 
     permissionStore.getAddRouters.forEach((route) => {
-      addRoute(route as RouteRecordRaw) // 动态添加可访问路由表
+      addRoute(route as RouteRecordRaw) // Dynamically add accessible route table
     })
     permissionStore.setIsAddRouters(true)
     push({ path: redirect.value || permissionStore.addRouters[0].path })

@@ -45,7 +45,7 @@ const tagsViewIcon = computed(() => appStore.getTagsViewIcon)
 
 const isDark = computed(() => appStore.getIsDark)
 
-// 初始化tag
+// Initializetag
 const initTags = () => {
   affixTagArr.value = filterAffixTags(unref(routers))
   for (const tag of unref(affixTagArr)) {
@@ -65,7 +65,7 @@ const addTags = () => {
   }
 }
 
-// 关闭选中的tag
+// Close选中的tag
 const closeSelectedTag = (view: RouteLocationNormalizedLoaded) => {
   closeCurrent(view, () => {
     if (isActive(view)) {
@@ -93,29 +93,29 @@ const toLastView = () => {
   }
 }
 
-// 关闭全部
+// Close全部
 const closeAllTags = () => {
   closeAll(() => {
     toLastView()
   })
 }
 
-// 关闭其它
+// Close其它
 const closeOthersTags = () => {
   closeOther()
 }
 
-// 重新加载
+// 重新Load
 const refreshSelectedTag = async (view?: RouteLocationNormalizedLoaded) => {
   refreshPage(view)
 }
 
-// 关闭左侧
+// Close左侧
 const closeLeftTags = () => {
   closeLeft()
 }
 
-// 关闭右侧
+// Close右侧
 const closeRightTags = () => {
   closeRight()
 }
@@ -207,10 +207,10 @@ const isActive = (route: RouteLocationNormalizedLoaded): boolean => {
   return route.path === unref(currentRoute).path
 }
 
-// 所有右键菜单组件的元素
+// 所有右键menu组件的元素
 const itemRefs = useTemplateRefsList<ComponentRef<typeof ContextMenu & ContextMenuExpose>>()
 
-// 右键菜单状态改变的时候
+// 右键menustatus改变的时候
 const visibleChange = (visible: boolean, tagItem: RouteLocationNormalizedLoaded) => {
   if (visible) {
     for (const v of unref(itemRefs)) {
@@ -223,10 +223,10 @@ const visibleChange = (visible: boolean, tagItem: RouteLocationNormalizedLoaded)
   }
 }
 
-// elscroll 实例
+// elscroll instance
 const scrollbarRef = ref<ComponentRef<typeof ElScrollbar>>()
 
-// 保存滚动位置
+// Save滚动位置
 const scrollLeftNumber = ref(0)
 
 const scroll = ({ scrollLeft }) => {

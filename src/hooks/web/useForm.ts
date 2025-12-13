@@ -4,15 +4,15 @@ import { ref, unref, nextTick } from 'vue'
 import { FormSchema, FormSetProps, FormProps } from '@/components/Form'
 
 export const useForm = () => {
-  // From实例
+  // Frominstance
   const formRef = ref<typeof Form & FormExpose>()
 
-  // ElForm实例
+  // ElForminstance
   const elFormRef = ref<ComponentRef<typeof ElForm>>()
 
   /**
-   * @param ref Form实例
-   * @param elRef ElForm实例
+   * @param ref Forminstance
+   * @param elRef ElForminstance
    */
   const register = (ref: typeof Form & FormExpose, elRef: ComponentRef<typeof ElForm>) => {
     formRef.value = ref
@@ -28,10 +28,10 @@ export const useForm = () => {
     return form
   }
 
-  // 一些内置的方法
+  // Some built-in methods
   const methods = {
     /**
-     * @description 设置form组件的props
+     * @description Setform组件的props
      * @param props form组件的props
      */
     setProps: async (props: FormProps = {}) => {
@@ -43,8 +43,8 @@ export const useForm = () => {
     },
 
     /**
-     * @description 设置form的值
-     * @param data 需要设置的数据
+     * @description Setform的值
+     * @param data 需要Set的data
      */
     setValues: async (data: Recordable) => {
       const form = await getForm()
@@ -52,8 +52,8 @@ export const useForm = () => {
     },
 
     /**
-     * @description 设置schema
-     * @param schemaProps 需要设置的schemaProps
+     * @description Setschema
+     * @param schemaProps 需要Set的schemaProps
      */
     setSchema: async (schemaProps: FormSetProps[]) => {
       const form = await getForm()
@@ -62,7 +62,7 @@ export const useForm = () => {
 
     /**
      * @description 新增schema
-     * @param formSchema 需要新增数据
+     * @param formSchema 需要新增data
      * @param index 在哪里新增
      */
     addSchema: async (formSchema: FormSchema, index?: number) => {
@@ -71,8 +71,8 @@ export const useForm = () => {
     },
 
     /**
-     * @description 删除schema
-     * @param field 删除哪个数据
+     * @description Deleteschema
+     * @param field Delete哪个data
      */
     delSchema: async (field: string) => {
       const form = await getForm()
@@ -80,7 +80,7 @@ export const useForm = () => {
     },
 
     /**
-     * @description 获取表单数据
+     * @description Getformdata
      * @returns form data
      */
     getFormData: async <T = Recordable>(): Promise<T> => {
@@ -89,8 +89,8 @@ export const useForm = () => {
     },
 
     /**
-     * @description 获取表单组件的实例
-     * @param field 表单项唯一标识
+     * @description Getform组件的instance
+     * @param field form项唯一标识
      * @returns component instance
      */
     getComponentExpose: async (field: string) => {
@@ -99,8 +99,8 @@ export const useForm = () => {
     },
 
     /**
-     * @description 获取formItem组件的实例
-     * @param field 表单项唯一标识
+     * @description GetformItem组件的instance
+     * @param field form项唯一标识
      * @returns formItem instance
      */
     getFormItemExpose: async (field: string) => {
@@ -109,7 +109,7 @@ export const useForm = () => {
     },
 
     /**
-     * @description 获取ElForm组件的实例
+     * @description GetElForm组件的instance
      * @returns ElForm instance
      */
     getElFormExpose: async () => {
